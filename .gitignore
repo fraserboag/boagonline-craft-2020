@@ -3,3 +3,4 @@
 /vendor
 .DS_Store
 /web/node_modules
+/plugins/craft-mailchimp-integration/src/controllers/SignupController.php
