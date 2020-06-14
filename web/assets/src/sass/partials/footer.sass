@@ -1,0 +1,87 @@
+footer
+    border-left: 20px solid transparent
+    border-right: 20px solid $black
+    position: relative
+    overflow: hidden
+
+    p
+        margin-top: 0
+        position: relative
+        line-height: 1.6
+
+        .copynotification
+            position: absolute
+            left: 0
+            top: 100%
+            opacity: 0
+            font-size: 16px
+            margin-top: 3px
+            -webkit-transform: translateX(30px)
+            transform: translateX(30px)
+            -webkit-transition: $short-transition
+            transition: $short-transition
+        .copynotification.visible
+            opacity: 0.5
+            -webkit-transform: translateX(0)
+            transform: translateX(0)
+
+        a
+            font-weight: 400
+            opacity: 0.5
+
+            img
+                position: absolute
+                width: 15px
+                left: calc(100% + 8px)
+                top: 6px
+                opacity: 0.5
+
+        a:after
+            background: $highlight
+
+    h3
+        font-weight: 700
+        line-height: 1
+        margin-bottom: 20px
+
+    .social
+        a
+            margin-top: 4px
+            width: 20px
+            display: inline-block
+            margin-right: 10px
+            -webkit-transition: $short-transition
+            transition: $short-transition
+            opacity: 0.5
+            img
+                pointer-events: none
+        a:hover
+            -webkit-transform: scale(1.1) rotate(-2deg)
+            transform: scale(1.1) rotate(-2deg)
+
+    .copyemailinput
+        opacity: 0
+        position: absolute
+        pointer-events: none
+        // width: 1px
+
+    .container .col:last-child
+        margin-left: 0
+
+
+@media (max-width: 900px)
+    footer
+        border: 0
+
+
+@media (max-width: 600px)
+    footer
+        .row
+            flex-direction: column
+        
+        .col:last-child
+            display: none
+
+        .container .col+.col
+            margin-left: 0
+            margin-top: 40px

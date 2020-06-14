@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <link href="/assets/dist/css/global.css" rel="stylesheet">
+        <link href="/assets/dist/css/prism.css" rel="stylesheet">
+        <link href="/assets/dist/img/icon-favicon.png" rel="icon">
+
+        <title>{{ (entry.htmlTitle) ? entry.htmlTitle : entry.title ~ " - " ~ siteName }}</title>
+        {% hook 'seo' %}
+    </head>
+    <body class="{{ entry.slug }}">
+
+        {% cache if not devMode %}
+
+        {% set csrfParam = craft.app.request.csrfParam %}
+        {% set csrfToken = craft.app.request.csrfToken %}
+
+        <header>
+            <div class="container">
+            
+                <h2><a href="/" class="wobble">Boag</a></h2>
+                
+				<nav>
+					<ul class="nav wobblewithin">
+						{% for navLink in navigation.navigationLinks.all() %}
+							<li class="{{ (navLink.title == 'Blog') ? 'new' : '' }} {{ (navLink.title == entry.section or entry.section == 'Blog Entries' and navLink.title == 'Blog') ? 'current-menu-item' : '' }}">
+                                <a href="{{ navLink.url }}">{{ navLink.title }}</a>
+                            </li>
+						{% endfor %}
+					</ul>
+				</nav>
+
+            </div>
+        </header>
+
+		{% block main %}{% endblock %}
+
+		<section class="newsletter">
+            <div class="container pad hideonload">
+                <h2>Keep up to date</h2>
+                <p>From time to time I post things which people seem to find fairly interesting, stick your email address in the box below and I'll make sure you hear about it!</p>
+                <form class="newsletter-signup" autocomplete="off">
+                    <fieldset class="field">
+                        <label for="email_address">Enter your email address</label>
+                        <input id="email_address" type="email" name="email_address" required>
+                    </fieldset>
+                    <input type="hidden" name="{{ csrfParam }}" value="{{ csrfToken }}">
+                    <input type="submit" value="Go" class="button">
+                </form>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container pad row hideonload">
+                <div class="col">
+                    <h3>Email me</h3>
+                    <p>
+                        <a href="" class="copyemail nolink wobble">fraser.boag@gmail.com</a>
+                        <input type="text" class="copyemailinput" value="fraser.boag@gmail.com">
+                        <small class="copynotification">Copied to clipboard</small>
+                    </p>
+                </div>
+                <div class="col social">
+                    <h3>Follow me</h3>
+                    <a href="https://instagram.com/fraserboag" target="_blank"><img src="/assets/dist/img/icon-instagram.png" alt="Instagram icon"></a>
+
+                    <a href="https://twitter.com/intent/follow?screen_name=fraserboag" class="nolink"><img src="/assets/dist/img/icon-twitter.png" alt="Twitter icon"></a>
+
+                    <a href="https://codepen.io/fraserboag" target="_blank"><img src="/assets/dist/img/icon-codepen.png" alt="Codepen icon"></a>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </footer>
+
+        {% endcache %}
+
+        <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+        <script src="/assets/dist/js/prism.js"></script>
+        <script src="/assets/dist/js/app.js"></script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68238518-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-68238518-1');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+@keyframes fade
+	50%
+		-webkit-transform: translateY(-10%) rotate(-5deg)
+		transform: translateY(-10%) rotate(-5deg)
+		opacity: 0.5
+
+.wobble, .wobblewithin a
+	white-space: nowrap
+	span
+		display: inline-block
+		// pointer-events: none
+	span.fade
+		animation: fade 0.5s 1

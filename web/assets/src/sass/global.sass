@@ -1,0 +1,138 @@
+@import partials/reset
+@import partials/fonts
+@import partials/variables
+@import partials/header
+@import partials/footer
+@import partials/section-splash
+@import partials/section-about
+@import partials/section-latestnotes
+@import partials/section-newsletter
+@import partials/section-single
+@import partials/section-twitter
+@import partials/wobble
+@import partials/section-projects
+
+.hideonload.intersected
+    opacity: 1
+    -webkit-transform: translateY(0)
+    transform: translateY(0)
+
+body, input, textarea
+    font-family: $sans
+    color: $black
+    line-height: 1.7
+    font-size: 20px
+    font-weight: 400
+    background: $white
+    text-size-adjust: none
+
+body
+    position: relative
+
+*::selection
+    background: $black
+    color: $white
+
+*:not(h2):not(h3):not(.projectlink) + p
+    margin-top: 30px
+    
+p
+    a
+        color: $black
+        position: relative
+        -webkit-transition: $short-transition
+        transition: $short-transition
+        opacity: 0.5
+
+    em
+        font-style: italic
+
+a
+    text-decoration: none
+
+img
+    display: block
+    width: 100%
+
+h2
+    font-family: $sans
+    font-weight: 600
+    font-size: 30px
+    line-height: 1.3
+    position: relative
+    margin-bottom: 10px
+    
+    a
+        color: $black
+
+    img
+        max-width: 27px
+        display: inline-block
+        vertical-align: middle
+        margin-right: 10px
+        position: relative
+
+    img.bumpsmall
+        top: -1px
+
+    img.bumpbig
+        top: -3px
+
+.container
+    width: 85%
+    max-width: 1150px
+    margin: 0 auto
+    flex-direction: column
+    position: relative
+    z-index: 2
+
+    .col
+        flex-basis: 100%
+
+    .col + .col
+        margin-left: 100px
+
+.pad
+    padding: 100px 0
+
+.pad.notop
+    padding-top: 0
+
+.pad.lessbot
+    padding-bottom: 40px
+
+.row
+    display: flex
+    flex-direction: row
+
+#wpadminbar
+    position: fixed !important
+
+
+@media (max-width: 900px)
+
+    .container
+        width: 90%
+
+    .pad
+        padding: 70px 0
+
+    h2
+        font-size: 28px
+
+
+@media (max-width: 600px)
+
+    body, input, textarea
+        font-size: 18px
+
+    h2
+        font-size: 23px
+
+    .pad
+        padding: 60px 0
+
+    .twitter
+        .tweet
+            textarea
+                padding: 15px

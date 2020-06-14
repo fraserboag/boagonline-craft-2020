@@ -1,0 +1,32 @@
+{% extends "_layouts/main" %}
+
+{% block main %}
+
+	<section class="splash">
+		<div class="container hideonload-splash">
+			<h1>{{ entry.subTitle }}</h1>
+		</div>
+	</section>
+
+	<section class="section-projects block white">
+		<div class="container pad notop hideonload">
+
+			{% for post in craft.entries.section('workEntries').all() %}
+
+				<a class="note visible" href="{{ post.projectLink }}" target="_blank">
+					<span class="icon"></span>
+					<div class="image">
+						<img src="{{ post.featuredImage.one().url }}" alt="{{ post.featuredImage.one().altText }}">
+					</div>
+					<div class="content">
+						<h2>{{ post.title }}<span>{{ post.subTitle }}</span></h2>
+						<p>{{ post.plainTextPostContent }}</p>
+					</div>
+				</a>
+
+			{% endfor %}
+
+		</div>
+	</section>
+
+{% endblock %}

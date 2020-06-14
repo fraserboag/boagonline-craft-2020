@@ -1,0 +1,6 @@
+{
+  "buttons": ["html", "formatting", "bold", "italic", "unorderedlist", "orderedlist", "link", "image", "video"],
+  "plugins": ["video", "widget"],
+  "linkNewTab": true,
+  "toolbarFixed": true
+}

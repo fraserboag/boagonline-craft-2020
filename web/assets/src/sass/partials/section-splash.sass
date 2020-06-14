@@ -1,0 +1,82 @@
+.splash
+    display: flex
+    flex-direction: column
+    justify-content: center
+    border-left: 20px solid $highlight
+    border-right: 20px solid transparent
+
+    h1
+        font-size: 42px
+        line-height: 1.4
+        margin-top: 116px
+        padding: 150px 0 250px 0
+        max-width: 950px
+
+    .meta
+        margin-top: -215px
+        margin-bottom: 180px
+        display: flex
+        flex-direction: row
+
+        div
+            margin-left: 40px
+            opacity: 0.5
+
+        a
+            color: $black
+            opacity: 0.5
+
+.splash.home
+    h1
+        padding: 150px 0 250px 0
+
+.hideonload-splash
+    h1
+        .word
+            opacity: 0
+            -webkit-transform: translateY(50%)
+            transform: translateY(50%)
+            -webkit-transition: 700ms
+            transition: 700ms
+            display: inline-block
+        .word.fade
+            opacity: 1
+            -webkit-transform: translateY(0)
+            transform: translateY(0)
+
+
+@media (max-width: 900px)
+
+    .splash
+        border: 0
+
+        h1
+            font-size: 38px
+            padding-top: 100px
+
+        .meta
+            flex-direction: column
+            line-height: 1.8
+
+            div
+                margin-left: 0
+
+
+@media (max-width: 600px)
+
+    .splash
+        border-left-width: 10px
+        border-right-width: 10px
+
+        h1
+            font-size: 30px
+            margin-top: 82px
+            padding-bottom: 70px
+            padding-top: 70px
+
+        .meta
+            margin-top: -30px
+
+    .splash.home
+        h1
+            padding: 110px 0 220px

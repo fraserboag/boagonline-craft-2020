@@ -1,0 +1,36 @@
+{
+  "require": {
+    "craftcms/cms": "^3.4.0",
+    "craftcms/redactor": "2.6.1",
+    "ether/logs": "3.0.3",
+    "ether/seo": "3.6.5.1",
+    "fraserboag/craft-mailchimp-integration": "^1.0",
+    "vlucas/phpdotenv": "^3.4.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.0"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./plugins/*"
+    }
+  ]
+}

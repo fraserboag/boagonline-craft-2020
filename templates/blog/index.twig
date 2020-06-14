@@ -1,0 +1,36 @@
+{% extends "_layouts/main" %}
+
+{% block main %}
+
+	<section class="splash">
+		<div class="container hideonload-splash">
+			<h1>{{ entry.subTitle }}</h1>
+		</div>
+	</section>
+
+	<section class="latest-notes block white">
+		<div class="container pad notop hideonload">
+
+			<div class="posts">
+
+				{% for post in craft.entries.section('blogEntries').all() %}
+
+                    <a class="note visible" href="{{ post.url }}">
+                        <span class="icon"></span>
+                        <span class="title">
+                            {{ post.title }}
+                            <small>
+                                <img src="/assets/dist/img/icon-tag.png" class="tagicon" alt=""> {{ post.category.one().title | title }}
+                                <br><img src="/assets/dist/img/icon-time.png" class="tagicon time"> {{ post.postDate | date('jS F Y') }}
+                            </small>
+                        </span>
+                    </a>
+
+                {% endfor %}
+
+			</div>
+
+		</div>
+	</section>
+
+{% endblock %}

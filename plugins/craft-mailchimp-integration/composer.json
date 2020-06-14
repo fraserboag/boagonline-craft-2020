@@ -1,0 +1,25 @@
+{
+	"name": "fraserboag/craft-mailchimp-integration",
+	"description": "Custom Mailchimp API integration for boag.online",
+	"version": "1.0.0",
+	"type": "craft-plugin",
+	"license": "MIT",
+	"authors": [
+	  {
+		"name": "Fraser Boag",
+		"homepage": "https://boag.online"
+	  }
+	],
+	"require": {
+	  "craftcms/cms": "^3.1.0"
+	},
+	"autoload": {
+	  "psr-4": {
+		"fraserboag\\mailchimpintegration\\": "src/"
+	  }
+	},
+	"extra": {
+	  "name": "Mailchimp Integration",
+	  "handle": "mailchimp-integration"
+	}
+  }

@@ -1,0 +1,121 @@
+.latest-notes
+    border-right: 20px solid transparent
+    border-left: 20px solid transparent
+    position: relative
+
+    .section-head
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 30px
+
+        h2
+            margin-bottom: 0
+            line-height: 1
+
+    .posts
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-between
+        margin-bottom: -20px
+
+    .note
+        flex: 0 calc(50% - 15px)
+        background: #fff
+        padding: 60px 80px 60px 80px
+        display: none
+        color: $black
+        -webkit-transition: $short-transition
+        transition: $short-transition
+        position: relative
+        z-index: 1
+        margin-bottom: 30px
+        box-shadow: 0 10px 30px -35px black
+        align-items: center
+        overflow: hidden
+        border-bottom: 5px solid $highlight
+        font-size: 22px
+
+        .icon
+            position: absolute
+            top: 15px
+            right: 15px
+            width: 30px
+            height: 30px
+            border-top: 4px solid #eee
+            border-right: 4px solid #eee
+            -webkit-transition: $short-transition
+            transition: $short-transition
+
+        span
+            float: left
+            line-height: 1.6
+            pointer-events: none
+
+            small
+                display: block
+                opacity: 0.5
+                margin-top: 5px
+                font-size: 18px
+                line-height: 1.8
+
+    .note:hover
+        -webkit-transform: scale(1.03)
+        transform: scale(1.03)
+        box-shadow: 0 15px 30px -35px black
+
+        .icon
+            border-color: $highlight
+
+    .note.visible
+        display: flex
+
+.tagicon
+    display: inline-block
+    height: 14px
+    width: auto
+    vertical-align: middle
+    margin-right: 5px
+    pointer-events: none
+    position: relative
+
+.tagicon.time
+    top: -1px
+
+.blog .latest-notes, .page-id-186 .latest-notes
+    margin-top: -102px
+
+
+@media (max-width: 1200px)
+
+    .latest-notes
+        .note
+            padding: 60px
+
+
+@media (max-width: 900px)
+
+    .latest-notes
+        border: 0
+        
+        .note
+            padding: 50px 40px
+            flex: 100%
+            font-size: 20px
+
+            span
+
+                small
+                    font-size: 17px
+
+
+@media (max-width: 600px)
+
+    .latest-notes
+        .note
+            padding: 50px 30px
+
+    .blog .latest-notes
+        margin-top: 35px

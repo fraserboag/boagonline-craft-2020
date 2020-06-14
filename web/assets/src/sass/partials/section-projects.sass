@@ -1,0 +1,109 @@
+.section-projects
+    border-right: 20px solid transparent
+    border-left: 20px solid transparent
+    position: relative
+    margin-top: -102px
+
+    .posts
+        display: flex
+        flex-direction: column
+        margin-bottom: -20px
+
+    .note
+        background: #fff
+        padding: 60px 80px 60px 80px
+        display: none
+        color: $black
+        -webkit-transition: $short-transition
+        transition: $short-transition
+        position: relative
+        z-index: 1
+        margin-bottom: 30px
+        box-shadow: 0 10px 30px -35px black
+        overflow: hidden
+        border-bottom: 5px solid $highlight
+
+        .content
+            display: flex
+            flex-direction: column
+
+        .image
+            flex: 0 0 250px
+            padding-right: 80px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            
+            img
+                height: auto
+
+        .icon
+            position: absolute
+            top: 15px
+            right: 15px
+            width: 30px
+            height: 30px
+            border-top: 4px solid #eee
+            border-right: 4px solid #eee
+            -webkit-transition: $short-transition
+            transition: $short-transition
+
+        p
+            opacity: 0.5
+            font-size: 90%
+            margin-top: 10px
+
+        h2
+            margin-bottom: 0
+
+        h2 span
+            opacity: 0.3
+            display: block
+            margin-top: 5px
+
+    .note:hover
+        -webkit-transform: scale(1.015)
+        transform: scale(1.015)
+        box-shadow: 0 15px 30px -35px black
+
+        .icon
+            border-color: $highlight
+            
+    .note.visible
+        flex-direction: row
+        display: flex
+
+.tagicon
+    display: inline-block
+    height: 14px
+    width: auto
+    vertical-align: middle
+    margin-right: 5px
+    pointer-events: none
+    position: relative
+
+.tagicon.time
+    top: -1px
+
+
+@media (max-width: 900px)
+
+    .section-projects
+        border: 0
+
+        .note
+            padding: 60px
+            flex: 100%
+
+            .image
+                padding-right: 60px
+                display: none
+
+
+@media (max-width: 600px)
+
+    .section-projects
+        margin-top: 25px
+
+        .note
+            padding: 50px 30px

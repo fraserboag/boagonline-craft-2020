@@ -1,0 +1,65 @@
+.about
+    background: $highlight
+    border-right: 20px solid $white
+    border-left: 20px solid transparent
+    position: relative
+
+    .bumpup
+        margin-top: -60px
+
+    p
+        a
+            opacity: 0.5
+        a:after
+            background: $black
+
+    .img-wrapper
+        position: relative
+        box-shadow: 0 1px 2px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.07), 0 4px 8px rgba(0,0,0,.07), 0 8px 16px rgba(0,0,0,.07), 0 16px 32px rgba(0,0,0,.07), 0 32px 64px rgba(0,0,0,.07)
+
+        img
+            position: relative
+            z-index: 2
+
+    .img-wrapper:after
+        content: ""
+        position: absolute
+        background: $white
+        right: -60px
+        bottom: 60px
+        left: -20px
+        height: 100%
+        width: calc(100% + 80px)
+        z-index: 1
+
+.about:after
+    content: ""
+    display: block
+    position: absolute
+    background-image: linear-gradient(to left, rgba(255,255,255,0.5), transparent)
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+
+
+@media (max-width: 1200px)
+
+    .about
+        .row
+            flex-direction: column-reverse
+        .container .col+.col
+            margin-left: 0
+        .img-wrapper
+            max-width: 350px
+            margin-left: auto
+            margin-right: auto
+        .img-wrapper:after
+            display: none
+
+
+@media (max-width: 900px)
+
+    .about
+        border: 0
