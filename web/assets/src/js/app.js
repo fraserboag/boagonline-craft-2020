@@ -130,11 +130,11 @@ setTimeout(function () {
 
 // Auto-detect code blocks and add Prism class automatically
 
-var codeBlocks = document.querySelectorAll('.singlepost code, .singlepost pre');
+var codeBlocks = document.querySelectorAll('.singlepost pre, .singlepost p code');
 
-codeBlocks.forEach(function (el) {
+codeBlocks.forEach(function (el, i) {
 
-    console.log(el.tagName + ' ' + el.innerHTML.indexOf(':'))
+    console.log(el.tagName + ' ' + i + ' ' + el.innerHTML.indexOf(':'))
 
     if (el.parentElement.tagName === 'P') { // inline, doesn't really matter
         el.classList.add('language-sass');
