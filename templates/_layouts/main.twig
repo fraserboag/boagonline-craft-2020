@@ -11,32 +11,38 @@
         <title>{{ (entry.htmlTitle) ? entry.htmlTitle : entry.title ~ " - " ~ siteName }}</title>
         {% hook 'seo' %}
     </head>
-    <body class="{{ entry.slug }}">
+    <body>
 
         {% cache if not devMode %}
 
         {% set csrfParam = craft.app.request.csrfParam %}
         {% set csrfToken = craft.app.request.csrfToken %}
 
-        <header>
-            <div class="container">
-            
-                <h2><a href="/" class="wobble">Boag</a></h2>
+        <div class="transition-swipe"></div>
+
+        <div id="swup" class="{{ entry.slug }}">
+
+            <header>
+                <div class="container">
                 
-				<nav>
-					<ul class="nav wobblewithin">
-						{% for navLink in navigation.navigationLinks.all() %}
-							<li class="{{ (navLink.title == 'Blog') ? 'new' : '' }} {{ (navLink.title == entry.section or entry.section == 'Blog Entries' and navLink.title == 'Blog') ? 'current-menu-item' : '' }}">
-                                <a href="{{ navLink.url }}">{{ navLink.title }}</a>
-                            </li>
-						{% endfor %}
-					</ul>
-				</nav>
+                    <h2><a href="/" class="wobble">Boag</a></h2>
+                    
+                    <nav>
+                        <ul class="nav wobblewithin">
+                            {% for navLink in navigation.navigationLinks.all() %}
+                                <li class="{{ (navLink.title == 'Blog') ? 'new' : '' }} {{ (navLink.title == entry.section or entry.section == 'Blog Entries' and navLink.title == 'Blog') ? 'current-menu-item' : '' }}">
+                                    <a href="{{ navLink.url }}">{{ navLink.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
 
-            </div>
-        </header>
+                </div>
+            </header>
 
-		{% block main %}{% endblock %}
+            {% block main %}{% endblock %}
+
+        </div>
 
 		<section class="newsletter">
             <div class="container pad hideonload">
@@ -79,6 +85,10 @@
         {% endcache %}
 
         <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
+        <script src="/assets/dist/js/swup.js"></script>
+        <script src="/assets/dist/js/swup-ga-plugin.js"></script>
+        <script src="/assets/dist/js/swup-preload-plugin.js"></script>
+        <script src="/assets/dist/js/swup-scripts-plugin.js"></script>
         <script src="/assets/dist/js/prism.js"></script>
         <script src="/assets/dist/js/app.js"></script>
 
