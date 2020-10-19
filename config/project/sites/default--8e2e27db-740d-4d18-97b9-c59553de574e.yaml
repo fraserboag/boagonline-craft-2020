@@ -1,0 +1,8 @@
+baseUrl: $DEFAULT_SITE_URL
+handle: default
+hasUrls: true
+language: en-GB
+name: 'Fraser Boag'
+primary: true
+siteGroup: 9e9bc8cf-6ed4-4583-a589-27990c252c13
+sortOrder: 1

@@ -1,0 +1,29 @@
+fieldLayouts:
+  fe46b825-6dd4-4719-a066-9328bc115788:
+    tabs:
+      -
+        elements:
+          -
+            instructions: null
+            label: ''
+            type: craft\fieldlayoutelements\EntryTitleField
+          -
+            fieldUid: 29794e70-7e50-43f7-8468-e2c9e07c6e3b
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: eeb15d1e-8e1a-4c22-96c2-a94d937d706d
+            required: false
+            type: craft\fieldlayoutelements\CustomField
+        name: SEO
+        sortOrder: 2
+handle: blog
+hasTitleField: false
+name: Blog
+section: 33ddd987-1974-41af-88e1-aae19ac52809
+sortOrder: 1
+titleFormat: '{section.name|raw}'

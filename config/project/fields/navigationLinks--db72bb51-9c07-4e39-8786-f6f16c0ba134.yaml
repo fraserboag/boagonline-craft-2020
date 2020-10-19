@@ -1,0 +1,19 @@
+contentColumnType: string
+fieldGroup: 7d76f343-480f-468c-b9c5-379f22ccc290
+handle: navigationLinks
+instructions: ''
+name: 'Navigation Links'
+searchable: true
+settings:
+  allowSelfRelations: ''
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: ''
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

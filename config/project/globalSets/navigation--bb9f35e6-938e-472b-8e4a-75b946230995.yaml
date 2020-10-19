@@ -1,0 +1,12 @@
+fieldLayouts:
+  f7e1efc1-edad-4ff1-beac-95c46cbad5fa:
+    tabs:
+      -
+        fields:
+          db72bb51-9c07-4e39-8786-f6f16c0ba134:
+            required: false
+            sortOrder: 1
+        name: 'Tab 1'
+        sortOrder: 1
+handle: navigation
+name: Navigation

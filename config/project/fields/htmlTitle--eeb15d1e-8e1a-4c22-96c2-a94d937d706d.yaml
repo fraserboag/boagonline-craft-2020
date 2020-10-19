@@ -1,0 +1,17 @@
+contentColumnType: text
+fieldGroup: 1c5cf8e1-ea02-4104-bf53-9daf09af82c4
+handle: htmlTitle
+instructions: ''
+name: 'HTML Title'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
