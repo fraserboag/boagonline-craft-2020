@@ -8,7 +8,9 @@
         <link href="/assets/dist/css/prism.css" rel="stylesheet">
         <link href="/assets/dist/img/icon-favicon.png" rel="icon">
 
-        <title>{{ (entry.htmlTitle) ? entry.htmlTitle : entry.title ~ " - " ~ siteName }}</title>
+        {% set pageTitle = ((entry.htmlTitle) ? entry.htmlTitle : entry.title ~ " - " ~ siteName)  %}
+
+        <title>{{ pageTitle }}</title>
         {% hook 'seo' %}
     </head>
     <body>
