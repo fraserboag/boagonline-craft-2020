@@ -157,34 +157,34 @@ function init() {
 
     // Auto-detect code blocks and add Prism class automatically
 
-    if (document.querySelector('.singlepost pre')) {
+    // if (document.querySelector('.singlepost pre')) {
 
-        var codeBlocks = document.querySelectorAll('.singlepost pre, .singlepost p code');
+    //     var codeBlocks = document.querySelectorAll('.singlepost pre, .singlepost p code');
 
-        codeBlocks.forEach(function (el, i) {
+    //     codeBlocks.forEach(function (el, i) {
 
-            console.log(el.tagName + ' ' + i + ' ' + el.innerHTML.indexOf(':'))
+    //         console.log(el.tagName + ' ' + i + ' ' + el.innerHTML.indexOf(':'))
 
-            if (el.parentElement.tagName === 'P') { // inline, doesn't really matter
-                el.classList.add('language-sass');
+    //         if (el.parentElement.tagName === 'P') { // inline, doesn't really matter
+    //             el.classList.add('language-sass');
                 
-            } else if (
-                el.innerHTML.indexOf('forEach') !== -1 ||
-                el.innerHTML.indexOf('.then') !== -1
-            ) { // js
-                el.classList.add('language-javascript');
+    //         } else if (
+    //             el.innerHTML.indexOf('forEach') !== -1 ||
+    //             el.innerHTML.indexOf('.then') !== -1
+    //         ) { // js
+    //             el.classList.add('language-javascript');
 
-            } else if (el.innerHTML.indexOf(':') > 9) { // sass
-                el.classList.add('language-sass');
+    //         } else if (el.innerHTML.indexOf(':') > 9) { // sass
+    //             el.classList.add('language-sass');
 
-            } else { // bash?
-                el.classList.add('language-bash');
+    //         } else { // bash?
+    //             el.classList.add('language-bash');
 
-            }
+    //         }
 
-        });
+    //     });
 
-    }
+    // }
 
 }
 
