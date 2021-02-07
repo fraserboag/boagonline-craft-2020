@@ -1,8 +1,9 @@
 {
   "require": {
-    "craftcms/cms": "3.5.13.2",
-    "craftcms/redactor": "2.8.3",
-    "ether/seo": "3.6.6",
+    "craftcms/cms": "3.6.4.1",
+    "craftcms/element-api": "2.6.0",
+    "craftcms/redactor": "2.8.5",
+    "ether/seo": "3.6.7",
     "fraserboag/craft-mailchimp-integration": "^1.0",
     "putyourlightson/craft-dashboard-begone": "1.0.1",
     "vlucas/phpdotenv": "^3.4.0"
@@ -19,7 +20,7 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.3"
     }
   },
   "scripts": {
