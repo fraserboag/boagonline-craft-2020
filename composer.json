@@ -1,7 +1,6 @@
 {
   "require": {
     "craftcms/cms": "3.6.4.1",
-    "craftcms/element-api": "2.6.0",
     "craftcms/redactor": "2.8.5",
     "ether/seo": "3.6.7",
     "fraserboag/craft-mailchimp-integration": "^1.0",
