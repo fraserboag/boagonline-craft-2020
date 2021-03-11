@@ -3,43 +3,49 @@ import { gsap } from 'gsap';
 export function init() {
 
 	// Animate splash h1 on page load
-	gsap.fromTo('.splash h1', {
-		y: 20,
-		opacity: 0
-	}, {
-		y: 0,
-		opacity: 1,
-		duration: 0.8,
-		delay: 0.2,
-		ease: 'back'
-	});
+	if (document.querySelector('.splash h1')) {
+		gsap.fromTo('.splash h1', {
+			y: 20,
+			opacity: 0
+		}, {
+			y: 0,
+			opacity: 1,
+			duration: 0.8,
+			delay: 0.2,
+			ease: 'back'
+		});
+	}
 
 	// Animate splash meta on page load
-	gsap.fromTo('.splash .meta', {
-		y: 20,
-		opacity: 0
-	}, {
-		y: 0,
-		opacity: 1,
-		duration: 0.8,
-		delay: 0.35,
-		ease: 'back'
-	});
+	if (document.querySelector('.splash .meta')) {
+		gsap.fromTo('.splash .meta', {
+			y: 20,
+			opacity: 0
+		}, {
+			y: 0,
+			opacity: 1,
+			duration: 0.8,
+			delay: 0.35,
+			ease: 'back'
+		});
+	}
 
 	// Animate "boag" header logo on page load
-	gsap.to('header h2 a span', {
-		stagger: 0.1,
-		y: -5,
-		rotate: '-10deg',
-		duration: 0.2,
-	});
-	gsap.to('header h2 a span', {
-		stagger: 0.1,
-		y: 0,
-		rotate: '0deg',
-		duration: 0.2,
-		delay: 0.2
-	});
+	if (document.querySelector('header h2 a span')) {
+		gsap.to('header h2 a span', {
+			stagger: 0.1,
+			y: -5,
+			rotate: '-10deg',
+			duration: 0.2,
+		});
+		gsap.to('header h2 a span', {
+			stagger: 0.1,
+			y: 0,
+			rotate: '0deg',
+			duration: 0.2,
+			delay: 0.2
+		});
+	}
 
 	// Add expanding bar hover effect to links
 	document.querySelectorAll('p a, footer .copyemail, header .nav li:not(.current-menu-item) a').forEach((el) => {
