@@ -3,14 +3,14 @@
 {% block main %}
 
     <section class="splash home">
-        <div class="container hideonload-splash">
+        <div class="container">
             <h1>{{ entry.subTitle }}</h1>
         </div>
     </section>
 
-    <section class="about wobblewithin">
+    <section class="about">
         <div class="container row">
-            <div class="col pad hideonload">
+            <div class="col pad">
                 {{ entry.postContent }}
             </div>
             <div class="col bumpup">
@@ -22,25 +22,29 @@
     </section>
 
     <section class="latest-notes">
-        <div class="container pad accommodatemargin hideonload">
+        <div class="container pad accommodatemargin">
 
             <div class="section-head">
-                <h2><a href="/blog" class="wobble">Latest posts</a></h2>
+                <h2>Latest from the blog</h2>
+                <a href="/blog">All posts <img src="/assets/dist/img/icon-rightarrow.png" alt=""></a>
             </div>
 
             <div class="posts">
 
-                {% for post in craft.entries.section('blogEntries').limit(4).all() %}
+                {% for post in craft.entries.section('blogEntries').limit(3).all() %}
 
                     <a class="note visible" href="{{ post.url }}">
-                        <span class="icon"></span>
-                        <span class="title">
-                            {{ post.title }}
-                            <small>
+                        <div class="headline">
+                            <h3>{{ post.title }}</h3>
+                        </div>
+                        <small>
+                            <div>
                                 <img src="/assets/dist/img/icon-tag.png" class="tagicon" alt=""> {{ post.category.one().title | title }}
-                                <br><img src="/assets/dist/img/icon-time.png" class="tagicon time"> {{ post.postDate | date('jS F Y') }}
-                            </small>
-                        </span>
+                            </div>
+                            <div>
+                                <img src="/assets/dist/img/icon-time.png" class="tagicon time"> {{ post.postDate | date('jS F Y') }}
+                            </div>
+                        </small>
                     </a>
 
                 {% endfor %}

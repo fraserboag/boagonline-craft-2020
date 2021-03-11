@@ -3,30 +3,43 @@
 {% block main %}
 
 	<section class="splash">
-		<div class="container hideonload-splash">
+		<div class="container">
 			<h1>{{ entry.subTitle }}</h1>
 		</div>
 	</section>
 
 	<section class="latest-notes block white">
-		<div class="container pad notop hideonload">
+		<div class="container pad notop">
 
 			<div class="posts">
 
+				{% set lastYear = 0 %}
+
 				{% for post in craft.entries.section('blogEntries').all() %}
 
-                    <a class="note visible" href="{{ post.url }}">
-                        <span class="icon"></span>
-                        <span class="title">
-                            {{ post.title }}
-                            <small>
+					{% set postYear = post.postDate | date('Y') %}
+
+					{% if postYear != lastYear %}
+						<h2 class="yearmarker">{{ postYear }}</h2>
+					{% endif %}
+
+					<a class="note visible" href="{{ post.url }}">
+                        <div class="headline">
+                            <h3>{{ post.title }}</h3>
+                        </div>
+                        <small>
+                            <div>
                                 <img src="/assets/dist/img/icon-tag.png" class="tagicon" alt=""> {{ post.category.one().title | title }}
-                                <br><img src="/assets/dist/img/icon-time.png" class="tagicon time"> {{ post.postDate | date('jS F Y') }}
-                            </small>
-                        </span>
+                            </div>
+                            <div>
+                                <img src="/assets/dist/img/icon-time.png" class="tagicon time"> {{ post.postDate | date('jS F Y') }}
+                            </div>
+                        </small>
                     </a>
 
-                {% endfor %}
+					{% set lastYear = postYear %}
+
+				{% endfor %}
 
 			</div>
 

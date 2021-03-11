@@ -1,0 +1,8 @@
+{
+	"buttons": ["formatting", "bold", "italic", "ul", "link", "image", "html"],
+	"formatting": ["p", "h2", "pre"],
+	"plugins": ["video", "widget", "inlinestyle"],
+	"linkNewTab": true,
+	"toolbarFixed": true
+}
+  

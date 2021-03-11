@@ -3,28 +3,51 @@
 {% block main %}
 
 	<section class="splash">
-		<div class="container hideonload-splash">
+		<div class="container">
 			<h1>{{ entry.subTitle }}</h1>
 		</div>
 	</section>
 
 	<section class="section-projects block white">
-		<div class="container pad notop hideonload">
+		<div class="container pad notop">
+
+			<div class="posts">
 
 			{% for post in craft.entries.section('workEntries').all() %}
 
-				<a class="note visible" href="{{ post.projectLink }}" target="_blank">
-					<span class="icon"></span>
-					<div class="image">
-						<img src="{{ post.featuredImage.one().url }}" alt="{{ post.featuredImage.one().altText }}">
+				<a href="{{ post.projectLink }}" class="note visible" target="_blank">
+
+					<div class="main">
+						<div class="content">
+
+							<h2>{{ post.title }}</h2>
+							<p>{{ post.plainTextPostContent }}</p>
+
+							{% if post.projectEmployer or post.projectContributors %}
+								<div class="credits">
+									{% if post.projectEmployer %}
+										<strong>Employer</strong> <span>{{ post.projectEmployer }}</span>
+									{% endif %}
+									
+									{% if post.projectEmployer and post.projectContributors %}
+										<br>
+									{% endif %}
+
+									{% if post.projectContributors %}
+										<strong>Contributors</strong> <span>{{ post.projectContributors }}</span>
+									{% endif %}
+								</div>
+							{% endif %}
+
+							<span class="cta">Visit project <img src="/assets/dist/img/icon-rightarrow.png"></span>
+						</div>
 					</div>
-					<div class="content">
-						<h2>{{ post.title }}<span>{{ post.subTitle }}</span></h2>
-						<p>{{ post.plainTextPostContent }}</p>
-					</div>
+
 				</a>
 
 			{% endfor %}
+
+			</div>
 
 		</div>
 	</section>

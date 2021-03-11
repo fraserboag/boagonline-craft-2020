@@ -4,6 +4,15 @@ footer
     position: relative
     overflow: hidden
 
+    .container
+        justify-content: center
+        .col
+            display: flex
+            flex-direction: row
+            align-items: center
+            flex-basis: initial
+            margin: 0 60px
+
     p
         margin-top: 0
         position: relative
@@ -15,13 +24,12 @@ footer
             top: 100%
             opacity: 0
             font-size: 16px
-            margin-top: 3px
             -webkit-transform: translateX(30px)
             transform: translateX(30px)
             -webkit-transition: $short-transition
             transition: $short-transition
         .copynotification.visible
-            opacity: 0.5
+            opacity: 0.3
             -webkit-transform: translateX(0)
             transform: translateX(0)
 
@@ -40,30 +48,35 @@ footer
             background: $highlight
 
     h3
-        font-weight: 700
+        font-weight: 500
         line-height: 1
-        margin-bottom: 20px
+        margin-right: 20px
 
     .social
         a
-            margin-top: 4px
             width: 20px
             display: inline-block
-            margin-right: 10px
-            -webkit-transition: $short-transition
-            transition: $short-transition
+            margin-right: 20px
             opacity: 0.5
             img
                 pointer-events: none
-        a:hover
-            -webkit-transform: scale(1.1) rotate(-2deg)
-            transform: scale(1.1) rotate(-2deg)
+        a:last-child
+            margin-right: 0
+
+    .copyemail .hovereffect
+        display: block
+        position: absolute
+        bottom: 0
+        left: 0
+        height: 3px
+        width: 100%
+        background: transparentize($highlight, 0.5)
+        z-index: -1
 
     .copyemailinput
         opacity: 0
         position: absolute
         pointer-events: none
-        // width: 1px
 
     .container .col:last-child
         margin-left: 0
@@ -74,14 +87,25 @@ footer
         border: 0
 
 
-@media (max-width: 600px)
+@media (max-width: 750px)
     footer
+        .container
+            .col
+                margin: 0
+                display: flex
+                flex-direction: row
+                justify-content: center
+                margin-bottom: 20px
+            .col:first-child
+                margin-bottom: 0
         .row
-            flex-direction: column
-        
-        .col:last-child
-            display: none
+            flex-direction: column-reverse
 
-        .container .col+.col
-            margin-left: 0
-            margin-top: 40px
+
+@media (max-width: 400px)
+    footer
+        h3
+            margin-right: 15px
+        .social
+            a
+                margin-right: 14px

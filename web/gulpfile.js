@@ -1,32 +1,56 @@
-var gulp = require('gulp');
-var cssnano = require('gulp-cssnano');
-var autoprefixer = require('gulp-autoprefixer');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var sourcemaps = require('gulp-sourcemaps');
-var babel = require('gulp-babel');
+const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const cssnano = require('gulp-cssnano');
+const autoprefixer = require('gulp-autoprefixer');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const webpack = require('webpack-stream');
+const babel = require('gulp-babel');
+const mode = require('gulp-mode')();
 
-gulp.task('process-css', function(){
-    return gulp.src('assets/src/sass/*.sass')
-        .pipe(sourcemaps.init())
+gulp.task('process-sass', () => {
+    return gulp.src('assets/src/sass/global.sass')
+        .pipe(mode.development(sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             overrideBrowserslist: ['> 1%']
         }))
         .pipe(cssnano())
-        .pipe(sourcemaps.write())
+        .pipe(mode.development(sourcemaps.write()))
         .pipe(gulp.dest('assets/dist/css'));
 });
 
-gulp.task('process-js', function(){
-    return gulp.src('assets/src/js/*.js')
+gulp.task('process-js', () => {
+    return gulp.src('assets/src/js/app.js')
+        .pipe(webpack({
+            mode: mode.development() ? 'development' : 'production',
+            watch: true,
+            output: {
+                filename: 'bundle.js'
+            }
+        }))
         .pipe(babel({ presets: ['@babel/env'] }))
-        .pipe(uglify())
+        .pipe(mode.development(sourcemaps.init()))
+        .pipe(uglify().on('error', (uglify) => {
+            console.error(uglify.message);
+            this.emit('end');
+        }))
+        .pipe(mode.development(sourcemaps.write()))
         .pipe(gulp.dest('assets/dist/js'));
 });
 
-gulp.task('default', function(){
-    gulp.watch('assets/src/sass/*.sass', gulp.series('process-css'));
-    gulp.watch('assets/src/sass/partials/*.sass', gulp.series('process-css'));
-    gulp.watch('assets/src/js/*.js', gulp.series('process-js'));
+gulp.task('default', () => {
+
+    gulp.watch(
+        ['assets/src/sass/*.sass', 'assets/src/sass/*/*.sass'],
+        { ignoreInitial: false },
+        gulp.series('process-sass')
+    );
+
+    gulp.watch(
+        ['assets/src/js/*.js', 'assets/src/js/*/*.js'],
+        { ignoreInitial: false },
+        gulp.series('process-js')
+    );
+
 });

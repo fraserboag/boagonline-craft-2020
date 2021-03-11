@@ -1,8 +1,7 @@
 {
   "require": {
-    "craftcms/cms": "3.6.4.1",
+    "craftcms/cms": "3.6.10",
     "craftcms/redactor": "2.8.5",
-    "ether/seo": "3.6.7",
     "fraserboag/craft-mailchimp-integration": "^1.0",
     "putyourlightson/craft-dashboard-begone": "1.0.1",
     "vlucas/phpdotenv": "^3.4.0"

@@ -10,67 +10,100 @@
         align-items: center
         margin-bottom: 30px
 
+        a
+            opacity: 0.5
+            display: flex
+            flex-direction: row
+            align-items: center
+            img
+                height: 14px
+                width: auto
+                margin-left: 5px
+                position: relative
+                top: 1px
+
         h2
             margin-bottom: 0
             line-height: 1
 
+    .yearmarker
+        opacity: 0.3
+        font-weight: 400
+        margin-top: 10px
+    .yearmarker:first-child
+        margin-top: 0
+
     .posts
         display: flex
-        flex-direction: row
-        flex-wrap: wrap
-        justify-content: space-between
+        flex-direction: column
         margin-bottom: -20px
 
     .note
-        flex: 0 calc(50% - 15px)
+        width: 100%
         background: #fff
-        padding: 60px 80px 60px 80px
-        display: none
         color: $black
-        -webkit-transition: $short-transition
-        transition: $short-transition
         position: relative
         z-index: 1
-        margin-bottom: 30px
-        box-shadow: 0 10px 30px -35px black
-        align-items: center
-        overflow: hidden
-        border-bottom: 5px solid $highlight
-        font-size: 22px
-
-        .icon
-            position: absolute
-            top: 15px
-            right: 15px
-            width: 30px
-            height: 30px
-            border-top: 4px solid #eee
-            border-right: 4px solid #eee
-            -webkit-transition: $short-transition
-            transition: $short-transition
-
-        span
-            float: left
-            line-height: 1.6
-            pointer-events: none
-
-            small
-                display: block
-                opacity: 0.5
-                margin-top: 5px
-                font-size: 18px
-                line-height: 1.8
-
-    .note:hover
-        -webkit-transform: scale(1.03)
-        transform: scale(1.03)
-        box-shadow: 0 15px 30px -35px black
-
-        .icon
-            border-color: $highlight
-
-    .note.visible
+        margin-bottom: 20px
+        box-shadow: 0 10px 30px -35px $black
         display: flex
+        flex-direction: row
+
+        .headline
+            width: 65%
+            padding: 50px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: flex-start
+            h3
+                font-size: 24px
+                font-weight: 500
+                line-height: 1.4
+                letter-spacing: -0.05rem
+            .cta
+                display: flex
+                flex-direction: row
+                align-items: center
+                margin-top: 15px
+                padding: 12px 25px
+                background: #f6f6f6
+                font-weight: 500
+                font-size: 16px
+                justify-self: flex-end
+                white-space: nowrap
+                
+                img
+                    width: 14px
+                    height: auto
+                    margin-left: 5px
+                    position: relative
+            
+        small
+            border-left: 1px solid transparentize($black, 0.8)
+            width: 35%
+            font-size: 19px
+            font-weight: 400
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: flex-start
+            line-height: 1.5
+            opacity: 0.5
+            padding: 50px
+
+            div
+                white-space: nowrap
+
+    .note:before
+        content: ""
+        display: block
+        position: absolute
+        top: 20px
+        left: -5px
+        width: 10px
+        height: 50%
+        background: $highlight
 
 .tagicon
     display: inline-block
@@ -85,37 +118,50 @@
     top: -1px
 
 .blog .latest-notes, .page-id-186 .latest-notes
-    margin-top: -102px
-
-
-@media (max-width: 1200px)
-
-    .latest-notes
-        .note
-            padding: 60px
+    margin-top: -90px
 
 
 @media (max-width: 900px)
-
     .latest-notes
         border: 0
         
         .note
-            padding: 50px 40px
-            flex: 100%
-            font-size: 20px
-
-            span
-
-                small
-                    font-size: 17px
-
+            flex-direction: column
+            .headline
+                width: 100%
+                padding: 30px 50px
+                h3
+                    font-size: 23px
+            small
+                width: 100%
+                border-left: 0
+                border-top: 1px solid transparentize($black, 0.8)
+                padding: 15px 50px
+                flex-direction: row
+                justify-content: flex-start
+                font-size: 18px
+                div
+                    margin-right: 20px
 
 @media (max-width: 600px)
+    .latest-notes
+        .section-head
+            flex-direction: column
+            align-items: flex-start
+            a
+                margin-top: 5px
 
+        .note
+            .headline
+                h3
+                    font-size: 22px
+            small
+                flex-direction: column
+
+@media (max-width: 400px)
     .latest-notes
         .note
-            padding: 50px 30px
-
-    .blog .latest-notes
-        margin-top: 35px
+            .headline
+                padding: 30px 40px
+            small
+                padding: 15px 40px
