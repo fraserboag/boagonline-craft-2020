@@ -9,7 +9,11 @@
         <link href="/assets/dist/css/global.css" rel="stylesheet">
         <link href="/assets/dist/img/icon-favicon.png" rel="icon">
 
-        {% set pageTitle = ((entry.htmlTitle) ? entry.htmlTitle : entry.title ~ " - " ~ siteName)  %}
+        {% if entry %}
+            {% set pageTitle = ((entry.htmlTitle) ? entry.htmlTitle : entry.title ~ " - " ~ siteName)  %}
+        {% else %}
+            {% set pageTitle = "Page Not Found - " ~ siteName %}
+        {% endif %}
         <title>{{ pageTitle }}</title>
 
         <meta property="og:url" content="{{ craft.app.request.absoluteUrl }}">
