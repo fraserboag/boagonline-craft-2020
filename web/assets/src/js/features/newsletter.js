@@ -30,7 +30,7 @@ export function init() {
 
 			emailField.value = "";
 			emailField.blur();
-			newsletterForm.querySelector("label").textContent = "You're on the list. Speak to you soon!";
+			newsletterForm.querySelector("label").textContent = "You're on the list. Speak soon!";
 			newsletterForm.querySelector(".field").classList.remove("focused");
 			newsletterForm.classList.add("submitted");
 		});
