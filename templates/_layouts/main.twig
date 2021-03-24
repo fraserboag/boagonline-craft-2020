@@ -41,7 +41,7 @@
         {% set csrfParam = craft.app.request.csrfParam %}
         {% set csrfToken = craft.app.request.csrfToken %}
 
-        {% cache if getenv('ENVIRONMENT') != 'dev' %}
+        {% cache for 10 years if getenv('ENVIRONMENT') != 'dev' %}
 
         <div class="{{ entry.slug }}">
 
