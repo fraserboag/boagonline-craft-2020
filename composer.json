@@ -1,6 +1,6 @@
 {
   "require": {
-    "craftcms/cms": "3.6.10",
+    "craftcms/cms": "3.7.29",
     "craftcms/redactor": "2.8.5",
     "fraserboag/craft-mailchimp-integration": "^1.0",
     "putyourlightson/craft-dashboard-begone": "1.0.1",
